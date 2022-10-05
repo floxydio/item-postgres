@@ -8,7 +8,10 @@ export default function App() {
   const [data, setData] = useState([])
 
   async function getDataItem() {
-   await axios.get("http://103.176.79.182:3000/product").then(function(response) {
+   await axios.get("http://103.176.79.182:3000/product", {headers: {
+    'Access-Control-Allow-Origin': '*',
+    'Content-type': 'application/json',
+ }}).then(function(response) {
     console.log(response.data["data"])
       setData(response.data["data"])
     })

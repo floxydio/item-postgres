@@ -5,7 +5,10 @@ import axios from 'axios'
 export default function TodoData({data}) {
 
   async function deleteById(id) {
-    await axios.delete(`http://103.176.79.182:3000/product-delete/${id}`).then(function(response) {
+    await axios.delete(`http://103.176.79.182:3000/product-delete/${id}`, {headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Content-type': 'application/json',
+   }}).then(function(response) {
 
       window.location.reload()
 

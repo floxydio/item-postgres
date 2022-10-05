@@ -12,7 +12,10 @@ export default function TodoSection() {
     
     await axios.post("http://103.176.79.182:3000/product", {
       nama : name,
-      harga: price
+      harga: price,headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-type': 'application/json',
+     }
     }).then(function(res) {
       console.log(res)
       window.location.reload()
